@@ -60,7 +60,7 @@ In this task you use PowerShell within Windows Server 2019 to install Active Dir
 6. Import the deployment modules by entering the following:
 
     `Import-Module ADDSDeployment`
-7. Promote your server to a domain controller by entering the following command.  Don't forget to set the domain anmes problerly minding the quotes.
+7. Promote your server to a domain controller by entering the following command.  Don't forget to set the domain names while properly minding the quotes.
 
     `Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\Windows\NTDS” -DomainMode “Win2012R2” -DomainName “yourdomain.com”
 -DomainNetbiosName *“YOURDOMAIN”* -ForestMode “Win2012R2” -InstallDns:$true
@@ -105,7 +105,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
 1. Connect to the **ADConnect** virtual machine and logon. **Microsoft Azure / Resource Groups / AD-ResourceGroup / ADConnect / Connect /Download RDP File**
 2. When prompted click **No** on the Network discovery blade.
 3. The DNS Server on ADCONNECT may not be set to see the domain controller (DC01), so we need to check that setting.  
-4. Open a **Command prompt** (**Start Button** -> **Windows System**) and enter *ipconfig /all*.  If the DNS Server is set to 10.10.10.11 (the private IP address of DC01), close the Command Prompt window and then continue to **Task 5 - Join the Domain**, otherwise proceed to the **Configure DNS** set of tasks.
+4. Open a **Command prompt** (**Start Button** -> **Windows System**) and enter *ipconfig /all*.  If the DNS Server is set to 10.10.10.11 (the private IP address of DC01), close the Command Prompt window and then continue to **Task 6 - Join the Domain**, otherwise proceed to the **Configure DNS** set of tasks.
 
 ### Configure DNS
 
@@ -134,7 +134,7 @@ We are creating a small VM to be used later to host Azure AD Connect.
 
         _You should write this initial domain  and directory name down._
 3. Click **Create**.  It will take several minutes for the directory to be created.
-4. Once complete, select Click **here** to manage your new directory.
+4. Once complete, select "Click **here** to manage your new directory".
 
 ## Task 8 - Create a Sync Account
 
@@ -177,6 +177,6 @@ Close Internet Explorer.
 ## Task 11 - Validate Synchronization
 
 1. Switch to the Azure portal and examine your Azure AD Directory by selecting the xxxx.onmicrosoft.com  Directory from the upper right hand corner of the portal.
-2. Note that you should see accounts sourced from Active Directory that have synchronized to Azure Active Directory (e.g. On Prem).
+2. Under **Manage** choose **Users** and you should see accounts sourced from Active Directory (e.g. On-Prem) that have synchronized to Azure Active Directory.
 
 ### Congratulations!  Your are now synchronizing Active Directory to Azure Active Directory
